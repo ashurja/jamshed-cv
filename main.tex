@@ -19,6 +19,50 @@
 \usepackage{tabularx}
 \usepackage{hyphenat}
 \usepackage{fontawesome}
+
+\usepackage{xcolor}
+% Define your custom colors
+\definecolor{light_blue}{HTML}{328998}
+\definecolor{light_gray}{HTML}{434E5E}
+\definecolor{dark_blue}{HTML}{3582C4}
+\definecolor{green}{HTML}{22A162}
+\definecolor{purple}{HTML}{59578E}
+\definecolor{pink}{HTML}{80425F}
+
+% Complementary, Contrasting, and Harmonious Color Suggestions
+% light_blue (#328998)
+\definecolor{complement_light_blue}{HTML}{FFA500} % Complementary: Orange
+\definecolor{contrast_light_blue}{HTML}{FF6F61}   % Contrasting: Coral
+\definecolor{harmonious_light_blue}{HTML}{FFB6C1} % Harmonious: Light Pink
+
+% light_gray (#434E5E)
+\definecolor{complement_light_gray}{HTML}{FFFF99} % Complementary: Pale Yellow
+\definecolor{contrast_light_gray}{HTML}{FFA500}   % Contrasting: Bright Orange
+\definecolor{harmonious_light_gray}{HTML}{E6E6FA} % Harmonious: Light Lavender
+
+% dark_blue (#3582C4)
+\definecolor{complement_dark_blue}{HTML}{FFFF00} % Complementary: Yellow
+\definecolor{contrast_dark_blue}{HTML}{FF0000}   % Contrasting: Red
+\definecolor{harmonious_dark_blue}{HTML}{D3D3D3} % Harmonious: Light Gray
+
+% green (#22A162)
+\definecolor{complement_green}{HTML}{FF00FF} % Complementary: Magenta
+\definecolor{contrast_green}{HTML}{FF0000}   % Contrasting: Red
+\definecolor{harmonious_green}{HTML}{CCFFCC} % Harmonious: Light Yellow-Green
+
+% purple (#59578E)
+\definecolor{complement_purple}{HTML}{FFFF00} % Complementary: Yellow
+\definecolor{contrast_purple}{HTML}{00FF00}   % Contrasting: Green
+\definecolor{harmonious_purple}{HTML}{E6E6FA} % Harmonious: Lavender
+
+% pink (#80425F)
+\definecolor{complement_pink}{HTML}{008000} % Complementary: Green
+\definecolor{contrast_pink}{HTML}{008080}   % Contrasting: Dark Teal
+\definecolor{harmonious_pink}{HTML}{FFDAB9} % Harmonious: Peach
+
+% Choose one of the colors as the main color
+\colorlet{main_color}{light_blue} % Change this to the desired color
+\colorlet{secondary_color}{contrast_pink} % Change this to the desired color
 \input{glyphtounicode}
 
 
@@ -55,7 +99,7 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
+  \vspace{-4pt}\color{main_color}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
@@ -74,11 +118,32 @@
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
+      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{#2} \\
       \textit{\small#3} & \textit{\small #4} \\
     \end{tabular*}\vspace{-7pt}
 }
 
+\newcommand{\resumeResearchheading}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{\textit{\small#2}}
+    \end{tabular*}\vspace{-10pt}
+}
+
+\newcommand{\resumePaperheading}[2]{
+  \vspace{-10pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\small #1}  \\
+      \quad \textit{\footnotesize#2}
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeClassheading}[2]{
+  \vspace{-10pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\small #1} & \textit{\footnotesize#2}
+    \end{tabular*}\vspace{-7pt}
+}
 
 \newcommand{\resumeSubSubheading}[2]{
     \vspace{-2pt}\item
@@ -101,7 +166,7 @@
 \newcommand{\resumeProjectHeading}[2]{
     \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
+      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{\textit{\small #2}} \\
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -132,7 +197,7 @@
 %---------- HEADING ----------
 
 \begin{center}
-    \textbf{\Huge \scshape Jamshed Ashurov} \\ \vspace{3pt}
+    \textbf{\Huge \scshape \textcolor{main_color}{Jamshed Ashurov}} \\ \vspace{3pt}
     \small
     \faMobile \hspace{.5pt} \href{tel:15713158339}{+1 571 315 8339}
     $|$
@@ -157,11 +222,11 @@
     
     \resumeSubheading
       {UC San Diego}{La Jolla, California, USA}
-      {BS/MS in Computer Engineering;   \textbf{GPA: 3.6/4.00}}{Sep 2018 \textbf{--} June 2023 (Expected)}
+      {BS/MS in Computer Engineering}{Sep 2018 \textbf{--} June 2023 (Expected)}
     
     \resumeSubheading
       {Sandy Spring Friends School}{Sandy Spring, Maryland, USA}
-      {High School Diploma;   \textbf{GPA: 3.6/4.00}}{July 2016 \textbf{--} Jun 2018}
+      {High School Diploma}{July 2016 \textbf{--} Jun 2018}
     
   \resumeSubHeadingListEnd
 
@@ -174,19 +239,20 @@
     \resumeSubheading
       {Ampere Computing}{Portland, Oregon, USA}
       {CPU Architect Intern}{June 2023 \textbf{--} Present}
-        % \resumeItemListStart
-        %     \resumeItem{Implemented common NLP tasks using transformers such as named-entity recognition (NER), part-of-speech (POS) tagging, sentiment analysis, text classification, and extractive/generative question answering.}
-        %     \resumeItem{Built a generative question answering system via Dense Passage Retrieval (DPR) and Retrieval-Augmented Generation (RAG) using the Haystack framework with Python.}
-        %     \resumeItem{Worked on a custom Turkish open-domain question answering system by fine-tuning a BERT base model transformer. Evaluated the exact match and F1 scores using different Turkish data sets and compared the evaluation results.}
-        % \resumeItemListEnd
+        \resumeItemListStart
+            \resumeItem{Collaborated closely with the Architecture and Design team to assess the Architectural Vulnerability Factor(AVF) of various microprocessor structures using advanced emulation techniques via Cadence Palladium.}
+            \resumeItem{Engineered and implemented an automated solution, streamlining the evaluation process and creating an adaptable infrastructure for potential integration with forthcoming chip designs.}
+            \resumeItem{Collaborated with the Firmware team, contributing to the development of a database-driven failure data collection tool.}
+            \resumeItem{Enhanced user experience by designing and refining the graphical user interface (GUI) of the tool, subsequently ensuring its smooth deployment across existing devices.}
+        \resumeItemListEnd
     
     \resumeSubheading
       {Nanome Inc.}{San Diego, California, USA}
       {Software Engineering Intern}{Jun 2019 \textbf{--} Sep 2019}
         \resumeItemListStart
-            \resumeItem{Developed from scratch an AR application on IOS devices that allows scientists, researchers, and pharmaceutical companies to analyze 3D proteins without the need for a VR experience.}
-            \resumeItem{Developed a local database to store the elements fetched from an online database.}
-            \resumeItem{Wrote initial scripts to enable cross-platform compatibility.}
+            \resumeItem{Developed AR application utilizing C\# on iOS devices, revolutionizing the way scientists, researchers, and pharmaceutical companies analyze 3D protein structures without the requirement of a VR setup.}
+            \resumeItem{Architected a robust local database system, integrating it into the application's framework to efficiently store and manage data elements retrieved from an online database source.}
+            \resumeItem{Implemented preliminary scripts, fostering cross-platform versatility and laying the foundation for the application's potential expansion to other platforms.}
         \resumeItemListEnd
     
   \resumeSubHeadingListEnd
@@ -199,26 +265,22 @@
   \vspace{3pt}
   \resumeSubHeadingListStart
   
-    \resumeSubheading
-      {Characterizing WebAssembly Performance in the Era of Serverless Computing}{UC San Diego}
-      {Graduate Research Assistant}{Jan 2022 \textbf{--} Present}
-        \resumeItemListStart
-            \resumeItem{Developed microbenchmarks to analyze the performance of WebAssembly System Interface(WASI) at a fine granularity.}
-            \resumeItem{Wrote scripts to analyze the performance of WASI on various architectures using Linux profiling tools.}
-            \resumeItem{Instrumenting the WebAssembly runtime to collect performance metrics.}
-        \resumeItemListEnd
-    
+    \resumeResearchheading{UC San Diego Research Assistant}{January 2022 - Present}
+      \resumePaperheading{Characterizing WebAssembly Performance in the Era of Serverless Computing}{\textbf{Jamshed Ashurov}, Zixuan Wang, Jishen Zhao}
+      \resumeItemListStart
+        \resumeItem{\href{https://conf.researchr.org/details/ecoop-issta-2023/ecoop-issta-2023-student-research-competition/7/-Characterizing-WebAssembly-Performance-in-the-Era-of-Serverless-Computing}{\textit{\underline{ISSTA 2023 SRC}}}}
+        %     \resumeItem{Developed microbenchmarks to analyze the performance of WebAssembly System Interface(WASI) at a fine granularity.}
+        %     \resumeItem{Wrote scripts to analyze the performance of WASI on various architectures using Linux profiling tools.}
+        %     \resumeItem{Instrumenting the WebAssembly runtime to collect performance metrics.}
+      \resumeItemListEnd
   \resumeSubHeadingListEnd
-
   %----------- TEACHING EXPERIENCE -----------
 
   \section{Teaching Experience}
   \vspace{3pt}
   \resumeSubHeadingListStart
-  
-    \resumeSubheading
-      {Computer Networks}{UC San Diego}
-      {Graduate Teaching Assistant}{Jan 2023 \textbf{--} June 2023}
+    \resumeResearchheading{UC San Diego Graduate Teaching Assistant}{Jan 2023 \textbf{--} June 2023}
+      \resumeClassheading{Computer Networks}{Professor Aaron Schulman}
         \resumeItemListStart
             \resumeItem{Designed and developed the source code and the testing framework for students to implement Sliding Window Protocol and TCP Congestion Control.}
             \resumeItem{Assisted students with understanding/debugging in building a simple router.}
@@ -231,15 +293,26 @@
 \section{Projects}
     \vspace{3pt}
     \resumeSubHeadingListStart
-      
+
       \resumeProjectHeading
-        {\textbf{Snek Compiler}}{}
+      {\textbf{Advanced Microprocessor Design}}{System Verilog, Verilator, Python, Bash}
+      % $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
+        \resumeItemListStart
+          \resumeItem{Improved 5-stage pipelined MIPS 32 processor with advanced optimizations in System Verilog, achieving significant performance gains across all benchmarks. Utilized bash and Python scripts to analyze and collect performance data.}
+          \resumeItem{Implemented 8KB 8-component TAGE branch predictor, reducing mispredictions by \(94.3\%(99.1\%)\) on average across all benchmarks compared to the baseline predictor.}
+          \resumeItem{Developed a victim cache using NRU replacement policy, resulting in an average CPI reduction of 10.2\%(19.9\%) compared to the baseline across all benchmarks.}
+          \resumeItem{Implemented DRRIP cache replacement policy, reducing dcache misses by \(31.4\%(80.3\%)\) compared to the baseline direct mapped cache across all benchmarks.}
+          \resumeItem{Modified the baseline in-order pipeline to scalar OOO processor with Partial Ordering for memory disambiguation policy. Achieved an average CPI reduction of 8.9\%(13.15\%) across all benchmarks compared to the baseline.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{Snek Compiler}}{Rust, x86}
         % $|$ \emph{\href{https://github.com/arasgungore/filters-and-fractals}{\color{blue}GitHub}}}{}
           \resumeItemListStart
             \resumeItem{Developed a compiler for the dynamically typed language Snek in Rust which incorporated essential language features such as arithmetic and binary operators, functions, dynamic data allocation, and other fundamental elements.}
             \resumeItem{Integrated the Mark and Compact garbage collection algorithm to efficiently manage memory and remove garbage data.}
-            \resumeItem{Introduced optimization techniques, including constant folding and variable propagation, to enhance the binary file size and improve program execution efficiency.}
             \resumeItem{Orchestrated the transition to Administrative Normal Form and subsequently to Intermediate Representation for effective code transformation and optimization.}
+            \resumeItem{Introduced optimization techniques, including constant folding and variable propagation, to enhance the binary file size and improve program execution efficiency.}
           \resumeItemListEnd
       
       \resumeProjectHeading
@@ -252,7 +325,7 @@
             \resumeItemListEnd
       
       \resumeProjectHeading
-        {\textbf{Intellectual Robotic Chess Player Arm}}{}
+        {\textbf{Intellectual Robotic Chess Player Arm}}{Python, TensorFlow, Keras, ONNX, Raspberry Pi}
         % $|$ \emph{\href{https://github.com/arasgungore/rocket-flight-simulator}{\color{blue}GitHub}}}{}
           \resumeItemListStart
             \resumeItem{Implemented a three-way network communication system involving a laptop, robotic arm, and camera.}
@@ -263,23 +336,12 @@
             \resumeItemListEnd
       
       \resumeProjectHeading
-        {\textbf{Fault Tolerant and Scalable Surfstore}}{}
+        {\textbf{Fault Tolerant and Scalable Surfstore}}{Golang, gRPC, Python, Bash}
         % $|$ \emph{\href{https://github.com/arasgungore/netlist-solver}{\color{blue}GitHub}}}{}
           \resumeItemListStart
-            \resumeItem{Developed a robust file-sharing application in Go and gRPC, closely resembling the functionalities of Dropbox.}
+            \resumeItem{Developed a robust file-sharing application, closely resembling the functionalities of Dropbox.}
             \resumeItem{Implemented consistent hashing for even data distribution, minimal movement during node scaling, and fault tolerance for seamless operations across numerous nodes.}
             \resumeItem{Employed the RAFT consensus algorithm to establish leader election, log replication, and fault recovery mechanisms, ensuring high availability and data integrity within the distributed system.}
-            \resumeItemListEnd
-      
-      \resumeProjectHeading
-        {\textbf{Advanced Microprocessor Design}}{}
-        % $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
-          \resumeItemListStart
-            \resumeItem{Improved 5-stage pipelined MIPS 32 processor with advanced optimizations, achieving significant performance gains across all benchmarks. Utilized bash and Python scripts to analyze and collect performance data.}
-            \resumeItem{Implemented 8KB 8-component TAGE branch predictor, reducing mispredictions by \(94.3\%(99.1\%)\) on average across all benchmarks compared to the baseline predictor.}
-            \resumeItem{Developed a victim cache using NRU replacement policy, resulting in an average CPI reduction of 10.2\%(19.9\%) compared to the baseline across all benchmarks.}
-            \resumeItem{Implemented DRRIP cache replacement policy, reducing dcache misses by \(31.4\%(80.3\%)\) compared to the baseline direct mapped cache across all benchmarks.}
-            \resumeItem{Modified the baseline in-order pipeline to scalar OOO processor with Partial Ordering for memory disambiguation policy. Achieved an average CPI reduction of 8.9\%(13.15\%) across all benchmarks compared to the baseline.}
             \resumeItemListEnd
       
     \resumeSubHeadingListEnd
@@ -315,11 +377,17 @@
   \vspace{2pt}
   \resumeSubHeadingListStart
     \small{\item{
-        \textbf{Programming:}{ C, C++, Java, Python, System Verilog, Rust, Golang, C\#, Shell, CUDA, Haskell, MATLAB, x86/ARM/MIPS Assembly.} \\ \vspace{3pt}
+        \textcolor{secondary_color}{\textbf{Programming:}}{ C, C++, Java, Python, System Verilog, Rust, Golang, C\#, Shell, Tcl, CUDA, Haskell, MATLAB, x86/ARM/MIPS Assembly.} \\ \vspace{3pt}
         
-        \textbf{Technical Skills:}{ Microprocessor Design, Compiler Design, Parallel Computing, Logic Design, Performance Profiling, Software Development, Reliable and Scalable System Development, Machine Learning, Universal Verification Method(UVM), Analog Circuit Analysis} \\ \vspace{3pt}
+        \textcolor{secondary_color}{\textbf{Tools:}}{ Cadence Palladium/Virtuoso/Innovus, Synopsis Verdi/Design Compiler, ModelSim, Quartus, Questa, Verilator, Unity3D, Fusion360.} \\ \vspace{3pt}
+
+        \textcolor{secondary_color}{\textbf{Technical Skills:}}{ Microprocessor Design, Compiler Design, Parallel Computing, Logic Design, Performance Profiling, Software Development, Reliable and Scalable System Development, Machine Learning, Universal Verification Method(UVM), Analog Circuit Analysis.} \\ \vspace{3pt}
         
-        \textbf{Languages:}{ Tajik (Native), Russian (Native), English (Professional)}
+        \textcolor{secondary_color}{\textbf{Soft Skills:}}{ Leadership, Teamwork, Public Speaking, Coaching, Teaching.} \\ \vspace{3pt}
+        
+        \textcolor{secondary_color}{\textbf{Additional Skills:}}{ Ballroom and Latin Dancing, Martial Arts, Rock Climbing.} \\ \vspace{3pt}
+
+        \textcolor{secondary_color}{\textbf{Languages:}}{ Tajik (Native), Russian (Native), English (Professional).}
         
         % \textbf{Frameworks}{: X, X, X} \\
         % \textbf{Developer Tools}{: X, X, X} \\

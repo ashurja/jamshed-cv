@@ -114,6 +114,11 @@
   }
 }
 
+\newcommand{\resumeSubItem}[1]{%
+  \item\small{%
+    #1 \vspace{-2pt}
+  }
+}
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
@@ -126,7 +131,7 @@
 \newcommand{\resumeResearchheading}[2]{
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{\textit{\small#2}}
+      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{\small#2}
     \end{tabular*}\vspace{-10pt}
 }
 
@@ -134,14 +139,14 @@
   \vspace{-10pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{\small #1}  \\
-      \quad \textit{\footnotesize#2}
+      \quad \footnotesize#2
     \end{tabular*}\vspace{-7pt}
 }
 
 \newcommand{\resumeClassheading}[2]{
   \vspace{-10pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{\small #1} & \textit{\footnotesize#2}
+      \textbf{\small #1} & \footnotesize#2
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -179,8 +184,6 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
@@ -203,11 +206,11 @@
     $|$
     \faAt \hspace{.5pt} \href{mailto:jamshed00ashurov@gmail.com}{jamshed00ashurov@gmail.com}
     $|$
-    \faGlobe \hspace{.5pt} \href{https://ashurja.github.io/}{Portfolio}
+    \faGlobe \hspace{.5pt} \href{https://ashurja.github.io/}{\textcolor{secondary_color}{Portfolio}}
     $|$
-    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/jamshed-ashurov/}{LinkedIn}
+    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/jamshed-ashurov/}{\textcolor{secondary_color}{LinkedIn}}
     $|$
-    \faGithub \hspace{.5pt} \href{https://github.com/ashurja}{GitHub}
+    \faGithub \hspace{.5pt} \href{https://github.com/ashurja}{\textcolor{secondary_color}{GitHub}}
     % $|$
     % \faMapMarker \hspace{.5pt} \href{https://www.google.com/maps/place/Bogazici+University+North+Campus/@41.0863067,29.0441352,15z/data=!4m5!3m4!1s0x0:0x9d2497b07c8edb2f!8m2!3d41.0863067!4d29.0441352}{Istanbul, Turkey}
 \end{center}
@@ -222,11 +225,15 @@
     
     \resumeSubheading
       {UC San Diego}{La Jolla, California, USA}
-      {BS/MS in Computer Engineering}{Sep 2018 \textbf{--} June 2023 (Expected)}
-    
+      {BS in Computer Engineering}{Sep 2018 \textbf{--} June 2022}
+
     \resumeSubheading
-      {Sandy Spring Friends School}{Sandy Spring, Maryland, USA}
-      {High School Diploma}{July 2016 \textbf{--} Jun 2018}
+      {UC San Diego}{La Jolla, California, USA}
+      {MS in Computer Engineering}{Sep 2022 \textbf{--} March/June 2024 (Expected)}
+
+    % \resumeSubheading
+    %   {Sandy Spring Friends School}{Sandy Spring, Maryland, USA}
+    %   {High School Diploma}{July 2016 \textbf{--} Jun 2018}
     
   \resumeSubHeadingListEnd
 
@@ -238,19 +245,21 @@
     
     \resumeSubheading
       {Ampere Computing}{Portland, Oregon, USA}
-      {CPU Architect Intern}{June 2023 \textbf{--} Present}
+      {CPU Architect Intern}{June 2023 \textbf{--} Sep 2023}
         \resumeItemListStart
             \resumeItem{Collaborated closely with the Architecture and Design team to assess the Architectural Vulnerability Factor(AVF) of various microprocessor structures using advanced emulation techniques via Cadence Palladium.}
             \resumeItem{Engineered and implemented an automated solution, streamlining the evaluation process and creating an adaptable infrastructure for potential integration with forthcoming chip designs.}
-            \resumeItem{Collaborated with the Firmware team, contributing to the development of a database-driven failure data collection tool.}
-            \resumeItem{Enhanced user experience by designing and refining the graphical user interface (GUI) of the tool, subsequently ensuring its smooth deployment across existing devices.}
+            \resumeItem{Collaborated with the Memory Controller Team to apply machine learning methods for memory controller performance optimization.}
+            \resumeItem{Led the establishment of an experimental framework and selection of suitable machine learning models for single-performance metric optimization and multi-objective optimization problems.}
+            % \resumeItem{Collaborated with the Firmware team, contributing to the development of a database-driven failure data collection tool.}
+            % \resumeItem{Enhanced user experience by designing and refining the graphical user interface (GUI) of the data collection tool, subsequently ensuring its smooth deployment across existing devices.}
         \resumeItemListEnd
     
     \resumeSubheading
       {Nanome Inc.}{San Diego, California, USA}
       {Software Engineering Intern}{Jun 2019 \textbf{--} Sep 2019}
         \resumeItemListStart
-            \resumeItem{Developed AR application utilizing C\# on iOS devices, revolutionizing the way scientists, researchers, and pharmaceutical companies analyze 3D protein structures without the requirement of a VR setup.}
+            \resumeItem{Developed AR application utilizing C\# on iOS devices, to aid in analyzing 3D protein structures without the requirement of a VR setup.}
             \resumeItem{Architected a robust local database system, integrating it into the application's framework to efficiently store and manage data elements retrieved from an online database source.}
             \resumeItem{Implemented preliminary scripts, fostering cross-platform versatility and laying the foundation for the application's potential expansion to other platforms.}
         \resumeItemListEnd
@@ -265,13 +274,13 @@
   \vspace{3pt}
   \resumeSubHeadingListStart
   
-    \resumeResearchheading{UC San Diego Research Assistant}{January 2022 - Present}
+    \resumeResearchheading{UC San Diego Research Assistant}{Jan 2022 - Present}
       \resumePaperheading{Characterizing WebAssembly Performance in the Era of Serverless Computing}{\textbf{Jamshed Ashurov}, Zixuan Wang, Jishen Zhao}
       \resumeItemListStart
-        \resumeItem{\href{https://conf.researchr.org/details/ecoop-issta-2023/ecoop-issta-2023-student-research-competition/7/-Characterizing-WebAssembly-Performance-in-the-Era-of-Serverless-Computing}{\textit{\underline{ISSTA 2023 SRC}}}}
-        %     \resumeItem{Developed microbenchmarks to analyze the performance of WebAssembly System Interface(WASI) at a fine granularity.}
-        %     \resumeItem{Wrote scripts to analyze the performance of WASI on various architectures using Linux profiling tools.}
-        %     \resumeItem{Instrumenting the WebAssembly runtime to collect performance metrics.}
+            % \resumeItem{Developed microbenchmarks to analyze the performance of WebAssembly System Interface(WASI) at a fine granularity.}
+            % \resumeItem{Wrote scripts to analyze the performance of WASI on various architectures using Linux profiling tools.}
+            % \resumeItem{Instrumenting the WebAssembly runtime to collect performance metrics.}
+            \resumeItem{\href{https://conf.researchr.org/details/ecoop-issta-2023/ecoop-issta-2023-student-research-competition/7/-Characterizing-WebAssembly-Performance-in-the-Era-of-Serverless-Computing}{\textcolor{secondary_color}{\textit{\underline{ISSTA 2023 SRC}}}}}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
   %----------- TEACHING EXPERIENCE -----------
@@ -279,10 +288,10 @@
   \section{Teaching Experience}
   \vspace{3pt}
   \resumeSubHeadingListStart
-    \resumeResearchheading{UC San Diego Graduate Teaching Assistant}{Jan 2023 \textbf{--} June 2023}
+    \resumeResearchheading{UC San Diego Graduate Teaching Assistant}{Jan 2023 \textbf{--} Present}
       \resumeClassheading{Computer Networks}{Professor Aaron Schulman}
         \resumeItemListStart
-            \resumeItem{Designed and developed the source code and the testing framework for students to implement Sliding Window Protocol and TCP Congestion Control.}
+            \resumeItem{Designed and developed the source code and the testing framework for students to implement Sliding Window Protocol and TCP Congestion Control mechanisms.}
             \resumeItem{Assisted students with understanding/debugging in building a simple router.}
         \resumeItemListEnd
     
@@ -303,6 +312,25 @@
           \resumeItem{Developed a victim cache using NRU replacement policy, resulting in an average CPI reduction of 10.2\%(19.9\%) compared to the baseline across all benchmarks.}
           \resumeItem{Implemented DRRIP cache replacement policy, reducing dcache misses by \(31.4\%(80.3\%)\) compared to the baseline direct mapped cache across all benchmarks.}
           \resumeItem{Modified the baseline in-order pipeline to scalar OOO processor with Partial Ordering for memory disambiguation policy. Achieved an average CPI reduction of 8.9\%(13.15\%) across all benchmarks compared to the baseline.}
+        \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{Intellectual Robotic Chess Player Arm}}{Python, TensorFlow, Keras, ONNX, Raspberry Pi}
+        % $|$ \emph{\href{https://github.com/arasgungore/rocket-flight-simulator}{\color{blue}GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{Implemented a three-way network communication system involving a laptop, robotic arm, and camera.}
+            \resumeItem{Utilized computer vision techniques to capture and process real-time images of the chessboard.}
+            \resumeItem{Utilized a range of convolutional neural network (CNN) models, including Xception, MobileNet, SqueezeNet, and NASNetMobile, to perform chessboard detection.}
+            \resumeItem{Employed different runtimes, such as TensorFlow, Keras, and ONNX, to optimize the detection process.}
+            \resumeItem{Integrated an AI chess engine, Stockfish, to generate the next move and coordinated the Raspberry Pi to control the robotic arm and execute the determined move.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{Parallel Computing}}{CUDA}
+        % $|$ \emph{\href{https://github.com/arasgungore/netlist-solver}{\color{blue}GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{Developed and optimized CUDA-based convolutional layer for the LeNet-5 architecture, significantly improving inference performance while maintaining high accuracy.}
+            \resumeItem{Converted 2D convolution operations into tiled matrix multiplications for better cache utilization to achieve faster execution time.}
           \resumeItemListEnd
 
       \resumeProjectHeading
@@ -321,19 +349,8 @@
           \resumeItemListStart
             \resumeItem{Integrated an attention mechanism, enabling the computation of a weighted sum of values based on query-value similarity for efficient performance.}
             \resumeItem{Utilized RTL design, verification, logic synthesis, and place-and-route (PnR) methodologies to generate gate-level netlist and layout via Synopsis Design Compiler (DC) and Cadence Innovus.}
-            \resumeItem{Implemented advanced low-power techniques, including pipelining, dynamic voltage and frequency modulation (DVFM), loop unrolling, memory double buffering, and clock gating, to optimize the power consumption of the design.}
-            \resumeItemListEnd
-      
-      \resumeProjectHeading
-        {\textbf{Intellectual Robotic Chess Player Arm}}{Python, TensorFlow, Keras, ONNX, Raspberry Pi}
-        % $|$ \emph{\href{https://github.com/arasgungore/rocket-flight-simulator}{\color{blue}GitHub}}}{}
-          \resumeItemListStart
-            \resumeItem{Implemented a three-way network communication system involving a laptop, robotic arm, and camera.}
-            \resumeItem{Utilized computer vision techniques to capture and process real-time images of the chessboard.}
-            \resumeItem{Utilized a range of convolutional neural network (CNN) models, including Xception, MobileNet, SqueezeNet, and NASNetMobile, to perform chessboard detection.}
-            \resumeItem{Employed different runtimes, such as TensorFlow, Keras, and ONNX, to optimize the detection process.}
-            \resumeItem{Integrated an AI chess engine, Stockfish, to generate the next move and coordinated the Raspberry Pi to control the robotic arm and execute the determined move.}
-            \resumeItemListEnd
+            \resumeItem{Implemented advanced low-power techniques, including pipelining, loop unrolling, asynchronous FIFO, and clock gating, to optimize the power consumption of the design.}
+          \resumeItemListEnd
       
       \resumeProjectHeading
         {\textbf{Fault Tolerant and Scalable Surfstore}}{Golang, gRPC, Python, Bash}
@@ -342,8 +359,8 @@
             \resumeItem{Developed a robust file-sharing application, closely resembling the functionalities of Dropbox.}
             \resumeItem{Implemented consistent hashing for even data distribution, minimal movement during node scaling, and fault tolerance for seamless operations across numerous nodes.}
             \resumeItem{Employed the RAFT consensus algorithm to establish leader election, log replication, and fault recovery mechanisms, ensuring high availability and data integrity within the distributed system.}
-            \resumeItemListEnd
-      
+          \resumeItemListEnd
+
     \resumeSubHeadingListEnd
 
 

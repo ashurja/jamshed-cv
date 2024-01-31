@@ -229,7 +229,7 @@
 
     \resumeSubheading
       {UC San Diego}{La Jolla, California, USA}
-      {MS in Computer Engineering}{Sep 2022 \textbf{--} March/June 2024 (Expected)}
+      {MS in Computer Engineering/Machine Learning \& Data Science}{Sep 2022 \textbf{--} June 2024 (Expected)}
 
     % \resumeSubheading
     %   {Sandy Spring Friends School}{Sandy Spring, Maryland, USA}
@@ -270,11 +270,11 @@
 
 %----------- RESEARCH EXPERIENCE -----------
 
-\section{Research Experience}
+\section{Research \& Teaching Experience}
   \vspace{3pt}
   \resumeSubHeadingListStart
   
-    \resumeResearchheading{UC San Diego Research Assistant}{Jan 2022 - Present}
+    \resumeResearchheading{UC San Diego Research Assistant}{Jan 2022 - Sep 2023}
       \resumePaperheading{Characterizing WebAssembly Performance in the Era of Serverless Computing}{\textbf{Jamshed Ashurov}, Zixuan Wang, Jishen Zhao}
       \resumeItemListStart
             % \resumeItem{Developed microbenchmarks to analyze the performance of WebAssembly System Interface(WASI) at a fine granularity.}
@@ -282,26 +282,45 @@
             % \resumeItem{Instrumenting the WebAssembly runtime to collect performance metrics.}
             \resumeItem{\href{https://conf.researchr.org/details/ecoop-issta-2023/ecoop-issta-2023-student-research-competition/7/-Characterizing-WebAssembly-Performance-in-the-Era-of-Serverless-Computing}{\textcolor{secondary_color}{\textit{\underline{ISSTA 2023 SRC}}}}}
       \resumeItemListEnd
-  \resumeSubHeadingListEnd
-  %----------- TEACHING EXPERIENCE -----------
 
-  \section{Teaching Experience}
-  \vspace{3pt}
-  \resumeSubHeadingListStart
-    \resumeResearchheading{UC San Diego Graduate Teaching Assistant}{Jan 2023 \textbf{--} Present}
-      \resumeClassheading{Computer Networks}{Professor Aaron Schulman}
+      \resumeResearchheading{UC San Diego Graduate Teaching Assistant}{Jan 2023 \textbf{--} Present}
+      \resumeClassheading{Computer Networks}{Aaron Schulman, Alex Snoeren}
         \resumeItemListStart
             \resumeItem{Designed and developed the source code and the testing framework for students to implement Sliding Window Protocol and TCP Congestion Control mechanisms.}
             \resumeItem{Assisted students with understanding/debugging in building a simple router.}
         \resumeItemListEnd
-    
+
   \resumeSubHeadingListEnd
+  %----------- TEACHING EXPERIENCE -----------
+
+  % \section{Teaching Experience}
+  % \vspace{3pt}
+  % \resumeSubHeadingListStart
+
+    
+  % \resumeSubHeadingListEnd
 
 %----------- PROJECTS -----------
 
 \section{Projects}
     \vspace{3pt}
     \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+      {\textbf{Statistical Inference and Machine Learning}}{MATLAB}
+      % $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
+      \resumeItemListStart
+        \resumeItem{Possess deep knowledge of the theory and direct, library-free implementation of Bayesian Decision Theory, Maximum Likelihood Estimation, Bayesian Parameter Estimation, Expectation-Maximization (EM), Principal Component Analysis(PCA), Linear Discriminant Analysis(LDA), and optimization methods such as Gradient Descent, Newton Descent, Simulated Annealing, Cross Entropy Minimization, and Search Gradient.}
+        \resumeItem{Applied these concepts to solve an image processing problem of teaching a computer to segment an image into background and foreground with an error rate of less than 5\%.}
+      \resumeItemListEnd
+
+      \resumeProjectHeading
+      {\textbf{Web Mining and Recommender Systems}}{Python, TensorFlow, Keras}
+      % $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
+        \resumeItemListStart
+          \resumeItem{Developed and implemented a Latent Factor Model(LFM) using TensorFlow's Keras API to predict ratings based on user interactions with recipes, reducing Mean Squared Error (MSE) from 1.708 (baseline) to 1.489.}
+          \resumeItem{Developed and implemented a Bayesian Personalized Ranking(BPR) model to predict user interactions with recipes, enhancing accuracy from 50\% (baseline) to 72\%.}
+        \resumeItemListEnd
 
       \resumeProjectHeading
       {\textbf{Advanced Microprocessor Design}}{System Verilog, Verilator, Python, Bash}
@@ -318,10 +337,8 @@
         {\textbf{Intellectual Robotic Chess Player Arm}}{Python, TensorFlow, Keras, ONNX, Raspberry Pi}
         % $|$ \emph{\href{https://github.com/arasgungore/rocket-flight-simulator}{\color{blue}GitHub}}}{}
           \resumeItemListStart
-            \resumeItem{Implemented a three-way network communication system involving a laptop, robotic arm, and camera.}
-            \resumeItem{Utilized computer vision techniques to capture and process real-time images of the chessboard.}
-            \resumeItem{Utilized a range of convolutional neural network (CNN) models, including Xception, MobileNet, SqueezeNet, and NASNetMobile, to perform chessboard detection.}
-            \resumeItem{Employed different runtimes, such as TensorFlow, Keras, and ONNX, to optimize the detection process.}
+            \resumeItem{Utilized a range of convolutional neural network (CNN) models, including Xception, MobileNet, SqueezeNet, and NASNetMobile, to capture and process real-time images of the chessboard.}
+            \resumeItem{Employed different runtimes, such as TensorFlow and ONNX, to optimize the detection process.}
             \resumeItem{Integrated an AI chess engine, Stockfish, to generate the next move and coordinated the Raspberry Pi to control the robotic arm and execute the determined move.}
           \resumeItemListEnd
 
@@ -337,8 +354,7 @@
         {\textbf{Snek Compiler}}{Rust, x86}
         % $|$ \emph{\href{https://github.com/arasgungore/filters-and-fractals}{\color{blue}GitHub}}}{}
           \resumeItemListStart
-            \resumeItem{Developed a compiler for the dynamically typed language Snek in Rust which incorporated essential language features such as arithmetic and binary operators, functions, dynamic data allocation, and other fundamental elements.}
-            \resumeItem{Integrated the Mark and Compact garbage collection algorithm to efficiently manage memory and remove garbage data.}
+            \resumeItem{Developed a compiler for the dynamically typed language Snek in Rust, integrating the Mark and Compact garbage collection algorithm to efficiently manage memory and remove garbage data.}
             \resumeItem{Orchestrated the transition to Administrative Normal Form and subsequently to Intermediate Representation for effective code transformation and optimization.}
             \resumeItem{Introduced optimization techniques, including constant folding and variable propagation, to enhance the binary file size and improve program execution efficiency.}
           \resumeItemListEnd
@@ -347,8 +363,7 @@
         {\textbf{Dual Core Machine Learning Hardware Accelerator for Attention Mechanism}}{}
         % $|$ \emph{\href{https://github.com/arasgungore/chess-bot}{\color{blue}GitHub}}}{}
           \resumeItemListStart
-            \resumeItem{Integrated an attention mechanism, enabling the computation of a weighted sum of values based on query-value similarity for efficient performance.}
-            \resumeItem{Utilized RTL design, verification, logic synthesis, and place-and-route (PnR) methodologies to generate gate-level netlist and layout via Synopsis Design Compiler (DC) and Cadence Innovus.}
+            \resumeItem{Utilized RTL design, verification, logic synthesis, and place-and-route (PnR) methodologies to generate gate-level netlist and layout for a ML hardware accelerator via Synopsis Design Compiler (DC) and Cadence Innovus.}
             \resumeItem{Implemented advanced low-power techniques, including pipelining, loop unrolling, asynchronous FIFO, and clock gating, to optimize the power consumption of the design.}
           \resumeItemListEnd
       
@@ -394,11 +409,11 @@
   \vspace{2pt}
   \resumeSubHeadingListStart
     \small{\item{
-        \textcolor{secondary_color}{\textbf{Programming:}}{ C, C++, Java, Python, System Verilog, Rust, Golang, C\#, Shell, Tcl, CUDA, Haskell, MATLAB, x86/ARM/MIPS Assembly.} \\ \vspace{3pt}
+        \textcolor{secondary_color}{\textbf{Programming:}}{ C, Python, System Verilog, C++, Rust, Golang, MATLAB, Java, C\#, Shell, Tcl, CUDA, Haskell, x86/ARM/MIPS Assembly.} \\ \vspace{3pt}
         
         \textcolor{secondary_color}{\textbf{Tools:}}{ Cadence Palladium/Virtuoso/Innovus, Synopsis Verdi/Design Compiler, ModelSim, Quartus, Questa, Verilator, Unity3D, Fusion360.} \\ \vspace{3pt}
 
-        \textcolor{secondary_color}{\textbf{Technical Skills:}}{ Microprocessor Design, Compiler Design, Parallel Computing, Logic Design, Performance Profiling, Software Development, Reliable and Scalable System Development, Machine Learning, Universal Verification Method(UVM), Analog Circuit Analysis.} \\ \vspace{3pt}
+        \textcolor{secondary_color}{\textbf{Technical Skills:}}{ Microprocessor Design, Machine Learning, Compiler Design, Parallel Computing, Logic Design, Performance Profiling, Software Development, Reliable and Scalable System Development, Universal Verification Method(UVM), Analog Circuit Analysis.} \\ \vspace{3pt}
         
         \textcolor{secondary_color}{\textbf{Soft Skills:}}{ Leadership, Teamwork, Public Speaking, Coaching, Teaching.} \\ \vspace{3pt}
         

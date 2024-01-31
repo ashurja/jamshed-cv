@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1695227014 "/Users/jamshedashurov/Desktop/website/jamshed-cv/main.tex" "main.pdf" "main" 1695227015 0
-  "/Users/jamshedashurov/Desktop/website/jamshed-cv/main.tex" 1695227013 21817 03147a0794588549c28446d74a15a48c ""
+["pdflatex"] 1706722950 "/Users/jamshedashurov/Desktop/website/jamshed-cv/main.tex" "main.pdf" "main" 1706722952 0
+  "/Users/jamshedashurov/Desktop/website/jamshed-cv/main.tex" 1706722948 22869 53e002b1caf5a3ca602ad60e2c3eb0a9 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc" 1463430686 1687 f004baecce60175c6453d0e3f808cf20 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc" 1463430686 2679 32dd8ae231bf4a0752b98f62dc097183 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -107,9 +107,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1691355109 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1691355011 7883460 bca3be21d721e8c17b873f3f6d81993f ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main.aux" 1695227015 1296 c9ebd6c77a21f0fcc465dbd4c3d91f84 "pdflatex"
-  "main.out" 1695227015 667 3861f3434ae928aa9cd02ed95e555dfa "pdflatex"
-  "main.tex" 1695227013 21817 03147a0794588549c28446d74a15a48c ""
+  "main.aux" 1706722951 1192 01a649cdc4eaf80aa41e858e83c76ea1 "pdflatex"
+  "main.out" 1706722951 590 a6b39434d8ea5dceafde9a33754855ef "pdflatex"
+  "main.tex" 1706722948 22869 53e002b1caf5a3ca602ad60e2c3eb0a9 ""
   (generated)
   "main.aux"
   "main.log"

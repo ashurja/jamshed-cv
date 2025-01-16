@@ -132,11 +132,11 @@
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{\small#2}
-    \end{tabular*}\vspace{-10pt}
+    \end{tabular*}\vspace{-7pt}
 }
 
 \newcommand{\resumePaperheading}[2]{
-  \vspace{-10pt}\item
+  \vspace{-15pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{\small #1}  \\
       \quad \footnotesize#2
@@ -144,7 +144,7 @@
 }
 
 \newcommand{\resumeClassheading}[2]{
-  \vspace{-10pt}\item
+  \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{\small #1} & \footnotesize#2
     \end{tabular*}\vspace{-7pt}
@@ -222,14 +222,12 @@
 \section{Education}
   \vspace{3pt}
   \resumeSubHeadingListStart
-    
     \resumeSubheading
       {UC San Diego}{La Jolla, California, USA}
-      {BS in Computer Engineering}{Sep 2018 \textbf{--} June 2022}
-
+      {MS in Computer Engineering (GPA:3.6)}{Sep 2022 \textbf{--} June 2024}
     \resumeSubheading
       {UC San Diego}{La Jolla, California, USA}
-      {MS in Computer Engineering/Machine Learning \& Data Science}{Sep 2022 \textbf{--} June 2024 (Expected)}
+      {BS in Computer Engineering (GPA:3.9)}{Sep 2018 \textbf{--} June 2022}
 
     % \resumeSubheading
     %   {Sandy Spring Friends School}{Sandy Spring, Maryland, USA}
@@ -248,11 +246,47 @@
       {CPU Architect Intern}{June 2023 \textbf{--} Sep 2023}
         \resumeItemListStart
             \resumeItem{Collaborated closely with the Architecture and Design team to assess the Architectural Vulnerability Factor(AVF) of various microprocessor structures using advanced emulation techniques via Cadence Palladium.}
-            \resumeItem{Engineered and implemented an automated solution, streamlining the evaluation process and creating an adaptable infrastructure for potential integration with forthcoming chip designs.}
-            \resumeItem{Collaborated with the Memory Controller Team to apply machine learning methods for memory controller performance optimization.}
-            \resumeItem{Led the establishment of an experimental framework and selection of suitable machine learning models for single-performance metric optimization and multi-objective optimization problems.}
-            % \resumeItem{Collaborated with the Firmware team, contributing to the development of a database-driven failure data collection tool.}
-            % \resumeItem{Enhanced user experience by designing and refining the graphical user interface (GUI) of the data collection tool, subsequently ensuring its smooth deployment across existing devices.}
+            \resumeItem{Collaborated with the Memory Controller Team by establishing an experimental framework of selecting suitable machine learning models for memory controller performance optimization.}
+            \resumeItem{Collaborated with the Firmware team, contributing to the development of a database-driven failure data collection tool.}
+            % DISCUSSION POINTS:
+              % AVF: 
+                % Analyze the AVF of components in the core. AVF = percentage of time that a bit flip caused by cosmic radiation waves will cause a soft error. 
+                % Example: X -> FILL, X -> WRITE are NON-ACE          X -> READ is ACE        
+                % Explain special case for EVICT: if the entry has been modified X -> EVICT is ACE since the dirty entry needs to be sent to the lower level caches or main memory. 
+                                                % if the entry has NOT been modified X -> EVICT is NON-ACE since the entry will just be overwritten
+                
+                % The goal is to determine the level of DETECTION AND CORRECTION needed for the component in question
+
+              % MEMORY CONTROLLER:
+                % PREFACE:
+                  % Memory controller has some reconfigurable parameters such the sizes of the buffer, number of banks, delays, and refresh rates, and bus sizes and etc. 
+                    % Each change has an effect on latency, badnwidth, and power. Need to determine the most optimal configuration across the three objectives. 
+                    % ONLY considered latency and badnwidth for THE STUDY. 
+                    % SEARCH SPACE is large since we have 70+ different parameters, with each parameter having 3-4 possibilities. Trying each configuration takes 20+ minutes. 
+                    % HEAURISTICs were used to determine the optimal configuration. 
+                % BAYESIAN SEARCH(OPTIMIZATION)
+                  % Proposed a more intelligent way of searching through the space using prexisting libraries(AX library).
+                  % Two candidates:
+                    % RL: Any problem that has an agent and an environment can be turned into an RL problem. Because of the nature of the problem it seemed appropriate to use a Search Algorithm
+                    % Search algorithms: In our case, we have a black box function. Meaning there's no formula for the problem, it's just choosing the parameters and seeing the results. How the results are generated is unknown. 
+                                        % Hence, we can't use traditional search algorithms like Gradient/Newton Descent. 
+                                        % Algorithms that I know: Simulated Annealing, Cross Entropy, Search Gradient, A*, and Bayesian Optimization. 
+                  % What is Bayesian Search and how is it different from other search methods
+                    % A renown method for searching for complex functions where evaluation take a long time. 
+                    % Used by search and rescue teams to finds the location of the crash of the plane. 
+                    % Uses Gausian Processes within to get the posterior distribution to get the mean and the variance which will be used in the acquisition funtion -> where to smaple next. 
+
+              % FIRMWARE TEAM:
+                % RAS DAEMON:
+                  % Whenever there's an error in the CPU or the MAIN MEMORY, they are written into special registers that are read by the Machine Check Architecture or the Memory Controller. 
+                  % Trigger an interrupt for serios errors or periodly write to the kernel log. 
+                  % Similarly a daemon wakes up periodically and sends the errors to a database. 
+                  % The goal is to keep track of the hardware, and determine a faulty hardware before the hardware fails. 
+                % MY RESPONSIBILITY:
+                  % Get the data from the database, aggregate it, and turn it into a human readable format. 
+            
+              
+                   
         \resumeItemListEnd
     
     \resumeSubheading
@@ -273,24 +307,216 @@
 \section{Research \& Teaching Experience}
   \vspace{3pt}
   \resumeSubHeadingListStart
-  
+  \resumeResearchheading{UC San Diego Graduate Teaching Assistant}{Jan 2023 \textbf{--} Jun 2024}
+
+  \resumeClassheading{Computer Networks}{Aaron Schulman, Alex Snoeren}
+    \resumeItemListStart
+        \resumeItem{Designed and developed the source code and the testing framework for students to implement Sliding Window Protocol and TCP Congestion Control mechanisms.}
+        \resumeItem{Assisted students with understanding/debugging in building a simple router.}
+        % DISCUSSION POINTS:
+          % Sliding Window Protocol with Cumulitive Acks and Selective Retransmission.
+            % The algorithm needs to ensure in-order delivery of the messages and implement the fragmentation, cumulitive acks, and selective retranmission correctly. 
+            % CUMULATIVE ACKS: Create advertised window sized buffers for each host. Whenver a message is delivered out of order, buffer the frame. Once the next expected frame arrives release the nodes, and send a cumulative ack. 
+            % SELECTIVE RETRANSMISSION: When sending frames to the otehr hosts, record the time when the frame was sent. Periodically check for timoeut, and retransmit the frames that have timed out. 
+          % TCP Congestion Control:
+            % Slow Start:
+              % Slow start mechnism of the TCP congestion control aims to get the feel of the network by rapidly growing its cwnd. 
+                % Initially cwnd is set to 1-3 MSS and ssthresh is set to RWND. For each successfully delivered packet, in this state the window is increased by MSS. 
+                % If the network condition changes, and packets start timing out, ssthresh = cwnd / 2 and cwnd is set back to 1. 
+            % AIMD:
+              % Once cwnd >= ssthresh, the protocol transition to AIMD, which for each sucessfully delivered packet increased the cwnd by MSS * (MSS/cwnd)
+              % The MD part really depends on which RFC is being used. 
+
+            % Fast Recovery & Fast Retransmit:
+              % Once three dup acks are detected:
+                % ssthresh = max(cwnd / 2, 2)
+                % cwnd = ssthresh + 3 * MSS
+              % Retransmit the lost frame immediately. 
+              % When an ACK arrives that's not a dup ack:
+                % cwnd = ssthresh
+          % TOOLS USED:
+            % Docker
+            % VSCode 
+            % GDB:
+              % Basic Commands
+                % gdb <program>
+                % Start GDB and load the program to be debugged.
+
+                % run [args...] or r [args...]
+                % Start executing the program with optional arguments.
+
+                % quit or q
+                % Exit GDB.
+
+              % Breakpoints
+                % break <location> or b <location>
+                % Set a breakpoint at the specified location. The location can be a function name, line number (e.g., b 120 to break at line 120), or a filename and line number (e.g., b main.c:120).
+                
+                % info breakpoints or i b
+                % List all breakpoints and their statuses.
+                
+                % delete <breakpoint_number>
+                % Remove a breakpoint.
+
+                % disable <breakpoint_number>
+                % Disable a breakpoint without removing it.
+
+                % enable <breakpoint_number>
+                % Enable a previously disabled breakpoint.
+
+              % Stepping and Continuing
+                % next or n
+                % Execute the next line of the program, stepping over function calls.
+
+                % step or s
+                % Execute the next line, stepping into function calls.
+
+                % continue or c
+                % Continue execution until the next breakpoint.
+
+                % finish
+                % Run until the current function is completed.
+
+              % Examining the State
+                % print <expression> or p <expression>
+                % Evaluate and display the value of an expression. Variables and expressions in the current context can be used.
+
+                % info locals
+                % Show local variables of the current function.
+
+                % info registers
+                % Display the contents of all registers (useful in low-level debugging).
+
+                % backtrace or bt
+                % Display the call stack to see the sequence of function calls that led to the current point.
+
+              % Modifying the Execution
+                % set var <variable>=<value>
+                % Change the value of a variable to influence the program’s path.
+
+                % Watching Variables
+                % watch <expression>
+                % Stop execution whenever the value of an expression changes. Useful for debugging loops and conditional behavior.
+
+              % Handling Signals
+                % handle <signal> <action>
+                % Define how a specific signal (like SIGSEGV, SIGINT) is handled by GDB. Actions include ignore, stop, and print.
+
+              % Miscellaneous
+                % list <location> or l <location>
+                % List source code at a specific location. This could be a function or line number to show the context around a certain part of the code.
+
+                % layout src
+                % Switch to a layout that displays the source code alongside the GDB commands. Useful in a terminal-based environment.
+
+
+          % BUILDING A SIMPLE ROUTER:
+            % ENVIROMENT:
+              % MINI-NET 
+              % POX 
+
+            % Students needed to fillin the implementation for the following Protocols:
+              % ARP: ARP request & ARP Reply 
+              % ICMP: ICMP Echo Request and ICMP Echo Reply 
+              % ICMP Errors: Host Unreachable and Destination Unreachable and TTL. 
+              % IP Forwarding Logic: LPM
+
+            % THEORITICAL EXAMPLE: 
+              % +-----------------------------------------------------------------------------------------+
+              % |                                                                                         |
+              % |   +-------+                +-------+                +-------+            +-------+       |
+              % |   |       |   ifc0         |       | port1          |       | port3      |       |       |
+              % |   |  R1   |--------------->|  S1   |--------------->|  S2   |----------->|  R2   |       |
+              % |   |       |          port0 |       |          port0 |       |       ifc0 |       |       |
+              % |   +-------+                +-------+                +-------+            +-------+       |
+              % |   ifc1 | ifc2              port2 | port3            port1 | port2          ifc1         |
+              % |     |     |                    |      |              |       |              |           |
+              % |     V     V                    V      V              V       V              V           |
+              % |  +-----+ +-----+          +-----+  +-----+        +-----+ +-----+        +-----+         |
+              % |  |     | |     |          |     |  |     |        |     | |     |        |     |         |
+              % |  |  A  | |  B  |          |  C  |  |  D  |        |  E  | |  F  |        |  G  |         |
+              % |  |     | |     |          |     |  |     |        |     | |     |        |     |         |
+              % |  +-----+ +-----+          +-----+  +-----+        +-----+ +-----+        +-----+         |
+              % |                                                                                         |
+              % +------------------------------------------------------------------------------------------+
+
+
+              % Scenario 1: Suppose HostD wants to send a message to HostA. Given that the default gateway for Host D is R1. The forwarding table of the switches and ARP tables of the hosts are initlaly empty. 
+                % Steps:
+                  % Since HostD knows the IP Address of ifc0 of R1 is will send a broadcast ARP request: "Who has IP ifc0" 
+                  % Now switch S1 will receive the packet, note that HostD is at port3, and then flood the packet. So Host C, R1 ifc0, S2 will receive them. 
+                    % Similarly S2 table is empty so it will note that hostD is at port0, and then flood it to E, F, and R2 ifc0. 
+
+                  % R1 will receive the ARP request, and then send the ARP repy to S1. 
+                    % S1 will note that ifc0 MAC is at port0, and then forward the packet to HostD only since it knows already that HostD is at port3. 
+                  % Host D will then send the IP packet destined to R1 ifc0. This time, once S1 receives the packet and looks at the dst MAC addr it will know to send the packet through port 0. 
+                  % R1 will receive the IP packet at the ifc0, perform a checksum and some checks on the sizes of the headers and the packet and perform LPM on the target addr. 
+                    % LPM will is a trie based implementation where you have to match all the prefix length bits for there to be a match. The longest matched candidate is the winner. 
+                  % Once the candiate is determine, the Router forwards the packet to the matched ifc. All the is stored within the trieNode. 
+                   % In our case ifc1. 
+
+                  % Ifc1 will buffer the packet for the targetIp and simultaniously make an ARP request to teh target address. 
+                   % Like before, hostA will receive the broadcasted packet, and send an ARP Reply. 
+                  % Ifc1 will get the reply, cache it, and then send teh actual packet to HostA. 
+
+            % TOOLS:
+              % Docker 
+              % WireShark(.pcap)
+            
+
+
+      
+    \resumeItemListEnd
+  \resumeClassheading{Graduate Networked Systems}{Alex Snoeren}
+    \resumeItemListStart
+    \resumeItem{Assisted students in designing and implementing distributed applications, notably a robust file-sharing application similar to Dropbox.}
+    \resumeItem{Guided integration of advanced concepts such as gRPC, consistent hashing for scalability, and the RAFT protocol for fault tolerance.}
+    \resumeItemListEnd
+
     \resumeResearchheading{UC San Diego Research Assistant}{Jan 2022 - Sep 2023}
       \resumePaperheading{Characterizing WebAssembly Performance in the Era of Serverless Computing}{\textbf{Jamshed Ashurov}, Zixuan Wang, Jishen Zhao}
       \resumeItemListStart
-            % \resumeItem{Developed microbenchmarks to analyze the performance of WebAssembly System Interface(WASI) at a fine granularity.}
-            % \resumeItem{Wrote scripts to analyze the performance of WASI on various architectures using Linux profiling tools.}
-            % \resumeItem{Instrumenting the WebAssembly runtime to collect performance metrics.}
+            \resumeItem{Developed microbenchmarks to analyze the performance of WebAssembly System Interface(WASI) at a fine granularity.}
+            \resumeItem{Wrote scripts to analyze the performance of WASI on various architectures using Linux profiling tools.}
+            \resumeItem{Instrumenting the WebAssembly runtime to collect performance metrics.}
             \resumeItem{\href{https://conf.researchr.org/details/ecoop-issta-2023/ecoop-issta-2023-student-research-competition/7/-Characterizing-WebAssembly-Performance-in-the-Era-of-Serverless-Computing}{\textcolor{secondary_color}{\textit{\underline{ISSTA 2023 SRC}}}}}
       \resumeItemListEnd
 
-      \resumeResearchheading{UC San Diego Graduate Teaching Assistant}{Jan 2023 \textbf{--} Present}
-      \resumeClassheading{Computer Networks}{Aaron Schulman, Alex Snoeren}
-        \resumeItemListStart
-            \resumeItem{Designed and developed the source code and the testing framework for students to implement Sliding Window Protocol and TCP Congestion Control mechanisms.}
-            \resumeItem{Assisted students with understanding/debugging in building a simple router.}
-        \resumeItemListEnd
-
   \resumeSubHeadingListEnd
+
+
+  % \section{Volunteering}
+  % \vspace{3pt}
+  % \resumeSubHeadingListStart
+  
+  %   \resumeSubheading
+  %   {UC San Diego Dancesport Team}{San Diego, California, USA}
+  %   {Vice President}{Sep 2019 \textbf{--} Jun 2020}
+  %   \resumeItemListStart
+  %         \resumeItem{Led and organized practices for a team of 30+ members, focusing on mastering 10 dances, including 5 Latin (cha-cha, samba, rumba, jive, paso doble) and 5 Standard (waltz, tango, foxtrot, quickstep, viennese waltz).}
+  %         \resumeItem{Coordinated team logistics and travel for state-wide competitions, ensuring smooth participation and team preparedness.}
+  %         \resumeItem{Developed practice schedules and training sessions to enhance team performance and collaboration.}
+  %   \resumeItemListEnd
+
+  %   \resumeSubheading
+  %   {UC San Diego Associated Students Department}{San Diego, California, USA}
+  %   {Sixth College Senator}{Oct 2018 \textbf{--} Jun 2019}
+  %   \resumeItemListStart
+  %         \resumeItem{Represented the interests of Sixth College students in university-wide decisions and initiatives.}
+  %         \resumeItem{Collaborated with university administrators to address student concerns and enhance campus life.}
+  %         \resumeItem{Advocated for student resources, academic improvements, and community-building events.}
+  %   \resumeItemListEnd
+
+  %   \resumeSubheading
+  %   {Young World Leaders}{Sandy Spring, Maryland, USA}
+  %   {Summer Camp Counselor/Soccer Coach}{Jun 2017 \textbf{--} Jul 2017}
+  %   \resumeItemListStart
+  %         \resumeItem{Organized and led soccer training sessions for campers aged 14-18, emphasizing teamwork and discipline.}
+  %         \resumeItem{Supervised daily activities for a diverse group of participants from Europe, Asia, Africa, and South America, ensuring a safe and fun environment.}
+  %         \resumeItem{Mentored campers and resolved conflicts, fostering a positive and engaging atmosphere.}
+  %   \resumeItemListEnd
+  % \resumeSubHeadingListEnd
+
   %----------- TEACHING EXPERIENCE -----------
 
   % \section{Teaching Experience}
@@ -307,19 +533,15 @@
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
-      {\textbf{Statistical Inference and Machine Learning}}{MATLAB}
+      {\textbf{Statistical Inference, Machine Learning, Optimization}}{Python, MATLAB, PyTorch, ManiSkill}
       % $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
       \resumeItemListStart
-        \resumeItem{Possess deep knowledge of the theory and direct, library-free implementation of Bayesian Decision Theory, Maximum Likelihood Estimation, Bayesian Parameter Estimation, Expectation-Maximization (EM), Principal Component Analysis(PCA), Linear Discriminant Analysis(LDA), and optimization methods such as Gradient Descent, Newton Descent, Simulated Annealing, Cross Entropy Minimization, and Search Gradient.}
-        \resumeItem{Applied these concepts to solve an image processing problem of teaching a computer to segment an image into background and foreground with an error rate of less than 5\%.}
-      \resumeItemListEnd
-
-      \resumeProjectHeading
-      {\textbf{Web Mining and Recommender Systems}}{Python, TensorFlow, Keras}
-      % $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
-        \resumeItemListStart
-          \resumeItem{Developed and implemented a Latent Factor Model(LFM) using TensorFlow's Keras API to predict ratings based on user interactions with recipes, reducing Mean Squared Error (MSE) from 1.708 (baseline) to 1.489.}
-          \resumeItem{Developed and implemented a Bayesian Personalized Ranking(BPR) model to predict user interactions with recipes, enhancing accuracy from 50\% (baseline) to 72\%.}
+        \resumeItem{Possess deep knowledge of the theory and direct, library-free implementation of: }
+        \resumeItem{Supervised: Multilayer Neural Networks(MNN), Boosting, MLE, Bayesian Parameter Estimation, EM}
+        \resumeItem{Unsupervised: PCA, LDA, K-Center Clustering, K-NN, SVD}
+        \resumeItem{Search \& Optimization: Newton Descent, Simulated Annealing, Cross Entropy Minimization, Search Gradient, A*}
+        \resumeItem{Reinforcement: Deep Q-Learning, PPO, SAC, RAINBOW, Imitation Learning}
+        \resumeItem{Collaborative Filtering: User-User CF, Item-Item CF, LFM, Bayesian Networks, Factorization machines}
         \resumeItemListEnd
 
       \resumeProjectHeading
@@ -327,10 +549,10 @@
       % $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
         \resumeItemListStart
           \resumeItem{Improved 5-stage pipelined MIPS 32 processor with advanced optimizations in System Verilog, achieving significant performance gains across all benchmarks. Utilized bash and Python scripts to analyze and collect performance data.}
-          \resumeItem{Implemented 8KB 8-component TAGE branch predictor, reducing mispredictions by \(94.3\%(99.1\%)\) on average across all benchmarks compared to the baseline predictor.}
-          \resumeItem{Developed a victim cache using NRU replacement policy, resulting in an average CPI reduction of 10.2\%(19.9\%) compared to the baseline across all benchmarks.}
-          \resumeItem{Implemented DRRIP cache replacement policy, reducing dcache misses by \(31.4\%(80.3\%)\) compared to the baseline direct mapped cache across all benchmarks.}
-          \resumeItem{Modified the baseline in-order pipeline to scalar OOO processor with Partial Ordering for memory disambiguation policy. Achieved an average CPI reduction of 8.9\%(13.15\%) across all benchmarks compared to the baseline.}
+          \resumeItem{Implemented 8KB 8-component TAGE branch predictor, reducing mispredictions by \(94.3\%(99.1\%)\).}
+          \resumeItem{Developed a victim cache using NRU replacement policy, resulting in an average CPI reduction of 10.2\%(19.9\%).}
+          \resumeItem{Implemented DRRIP cache replacement policy, reducing dcache misses by \(31.4\%(80.3\%)\).}
+          \resumeItem{Modified the baseline in-order pipeline to scalar OOO processor with Partial Ordering for memory disambiguation policy. Achieved an average CPI reduction of 8.9\%(13.15\%).}
         \resumeItemListEnd
 
       \resumeProjectHeading
@@ -367,14 +589,14 @@
             \resumeItem{Implemented advanced low-power techniques, including pipelining, loop unrolling, asynchronous FIFO, and clock gating, to optimize the power consumption of the design.}
           \resumeItemListEnd
       
-      \resumeProjectHeading
-        {\textbf{Fault Tolerant and Scalable Surfstore}}{Golang, gRPC, Python, Bash}
-        % $|$ \emph{\href{https://github.com/arasgungore/netlist-solver}{\color{blue}GitHub}}}{}
-          \resumeItemListStart
-            \resumeItem{Developed a robust file-sharing application, closely resembling the functionalities of Dropbox.}
-            \resumeItem{Implemented consistent hashing for even data distribution, minimal movement during node scaling, and fault tolerance for seamless operations across numerous nodes.}
-            \resumeItem{Employed the RAFT consensus algorithm to establish leader election, log replication, and fault recovery mechanisms, ensuring high availability and data integrity within the distributed system.}
-          \resumeItemListEnd
+      % \resumeProjectHeading
+      %   {\textbf{Fault Tolerant and Scalable Surfstore}}{Golang, gRPC, Python, Bash}
+      %   % $|$ \emph{\href{https://github.com/arasgungore/netlist-solver}{\color{blue}GitHub}}}{}
+      %     \resumeItemListStart
+      %       \resumeItem{Developed a robust file-sharing application, closely resembling the functionalities of Dropbox.}
+      %       \resumeItem{Implemented consistent hashing for even data distribution, minimal movement during node scaling, and fault tolerance for seamless operations across numerous nodes.}
+      %       \resumeItem{Employed the RAFT consensus algorithm to establish leader election, log replication, and fault recovery mechanisms, ensuring high availability and data integrity within the distributed system.}
+      %     \resumeItemListEnd
 
     \resumeSubHeadingListEnd
 

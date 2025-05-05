@@ -1,0 +1,352 @@
+%-------------------------
+% Resume in Latex
+% Author : Aras Gungore
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{hyphenat}
+\usepackage{fontawesome}
+\usepackage{graphicx}
+\usepackage{xcolor}
+% Define your custom colors
+\definecolor{light_blue}{HTML}{328998}
+\definecolor{light_gray}{HTML}{434E5E}
+\definecolor{dark_blue}{HTML}{3582C4}
+\definecolor{green}{HTML}{22A162}
+\definecolor{purple}{HTML}{59578E}
+\definecolor{pink}{HTML}{80425F}
+
+% Complementary, Contrasting, and Harmonious Color Suggestions
+% light_blue (#328998)
+\definecolor{complement_light_blue}{HTML}{FFA500} % Complementary: Orange
+\definecolor{contrast_light_blue}{HTML}{FF6F61}   % Contrasting: Coral
+\definecolor{harmonious_light_blue}{HTML}{FFB6C1} % Harmonious: Light Pink
+
+% light_gray (#434E5E)
+\definecolor{complement_light_gray}{HTML}{FFFF99} % Complementary: Pale Yellow
+\definecolor{contrast_light_gray}{HTML}{FFA500}   % Contrasting: Bright Orange
+\definecolor{harmonious_light_gray}{HTML}{E6E6FA} % Harmonious: Light Lavender
+
+% dark_blue (#3582C4)
+\definecolor{complement_dark_blue}{HTML}{FFFF00} % Complementary: Yellow
+\definecolor{contrast_dark_blue}{HTML}{FF0000}   % Contrasting: Red
+\definecolor{harmonious_dark_blue}{HTML}{D3D3D3} % Harmonious: Light Gray
+
+% green (#22A162)
+\definecolor{complement_green}{HTML}{FF00FF} % Complementary: Magenta
+\definecolor{contrast_green}{HTML}{FF0000}   % Contrasting: Red
+\definecolor{harmonious_green}{HTML}{CCFFCC} % Harmonious: Light Yellow-Green
+
+% purple (#59578E)
+\definecolor{complement_purple}{HTML}{FFFF00} % Complementary: Yellow
+\definecolor{contrast_purple}{HTML}{00FF00}   % Contrasting: Green
+\definecolor{harmonious_purple}{HTML}{E6E6FA} % Harmonious: Lavender
+
+% pink (#80425F)
+\definecolor{complement_pink}{HTML}{008000} % Complementary: Green
+\definecolor{contrast_pink}{HTML}{008080}   % Contrasting: Dark Teal
+\definecolor{harmonious_pink}{HTML}{FFDAB9} % Harmonious: Peach
+
+% Choose one of the colors as the main color
+\colorlet{main_color}{light_blue} % Change this to the desired color
+\colorlet{secondary_color}{contrast_pink} % Change this to the desired color
+\input{glyphtounicode}
+
+
+%---------- FONT OPTIONS ----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\color{main_color}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\faLeetcode}{\includegraphics[height=1em]{leetcode.png}}
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubItem}[1]{%
+  \item\small{%
+    #1 \vspace{-2pt}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{#2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeResearchheading}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{\small#2}
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumePaperheading}[3]{%
+  \vspace{-15pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\small #1} & \textcolor{contrast_green}{\small#2} \\
+      \quad \footnotesize #3
+    \end{tabular*}\vspace{-7pt}%
+}
+
+
+\newcommand{\resumeClassheading}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\small #1} & \footnotesize#2
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeEducationHeading}[6]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{secondary_color}{#2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+      \textit{\small#5} & \textit{\small #6} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textcolor{secondary_color}{\textbf{#1}} & \textcolor{complement_green}{\textit{\small #2}} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeOrganizationHeading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+      \textit{\small#3}
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeEducationListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeEducationListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%---------- HEADING ----------
+
+\begin{center}
+    \textbf{\Huge \scshape \textcolor{main_color}{Jamshed Ashurov}} \\ \vspace{3pt}
+    \small
+    \faMobile \hspace{.5pt} \href{tel:15713158339}{+1 571 315 8339}
+    $|$
+    \faAt \hspace{.5pt} \href{mailto:jamshed00ashurov@gmail.com}{jamshed00ashurov@gmail.com}
+    $|$
+    \faGlobe \hspace{.5pt} \href{https://ashurja.github.io/}{\textcolor{secondary_color}{Portfolio}}
+    $|$
+    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/jamshed-ashurov/}{\textcolor{secondary_color}{LinkedIn}}
+    % $|$
+    % \faGithub \hspace{.5pt} \href{https://github.com/ashurja}{\textcolor{secondary_color}{GitHub}}
+    $|$
+    \faLeetcode \hspace{.5pt} \href{https://leetcode.com/u/jashurov/}{\textcolor{secondary_color}{LeetCode}}
+    % \faMapMarker \hspace{.5pt} \href{https://www.google.com/maps/place/Bogazici+University+North+Campus/@41.0863067,29.0441352,15z/data=!4m5!3m4!1s0x0:0x9d2497b07c8edb2f!8m2!3d41.0863067!4d29.0441352}{Istanbul, Turkey}
+\end{center}
+
+
+
+%----------- EDUCATION -----------
+
+\section{Education}
+  \vspace{3pt}
+  \resumeEducationListStart
+    \resumeEducationHeading
+        {UC San Diego}{La Jolla, California, USA}
+        {MS in Computer Engineering (GPA:3.6)}{Sep 2022 \textbf{--} June 2024}
+        {BS in Computer Engineering (GPA:3.9)}{Sep 2018 \textbf{--} June 2022}
+  \resumeEducationListEnd
+
+%----------- WORK EXPERIENCE -----------
+
+\section{Experience}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {UC San Diego}{San Diego, California, USA}
+      {Graduate Teaching Assistant}{Jan 2023 \textbf{--} Jun 2024}
+        \resumeItemListStart
+          \resumeItem{Created source code in \textbf{C/C}++ for students to implement \textbf{TCP} flow \& congestion control within \textbf{Docker} containers.}
+          \resumeItem{Created source code in \textbf{Go} for a \textbf{distributed} file-sharing application using \textbf{gRPC}, consistent hashing, and the \textbf{RAFT} consensus protocol.}
+        \resumeItemListEnd
+    \resumeSubheading
+      {Ampere Computing}{Portland, Oregon, USA}
+      {CPU Architect Intern}{June 2023 \textbf{--} Sep 2023}
+        \resumeItemListStart
+            \resumeItem{Analyzed CPU component vulnerability (L1, L2, D/I-TLB, and LSU) to cosmic-ray-induced soft errors (AVF) using \textbf{Cadence Palladium} emulation platform.}
+            \resumeItem{Improved memory controller performance by using \textbf{Bayesian Optimization} algorithm, reducing latency by 5\% and increasing bandwidth by 3\%.}
+            % DISCUSSION POINTS:
+              % MEMORY CONTROLLER:
+                % PREFACE:
+                  % Memory controller has some reconfigurable parameters such the sizes of the buffer, number of banks, delays, and refresh rates, and bus sizes and etc. 
+                    % Each change has an effect on latency, badnwidth, and power. Need to determine the most optimal configuration across the three objectives. 
+                    % ONLY considered latency and badnwidth for THE STUDY. 
+                    % SEARCH SPACE is large since we have 70+ different parameters, with each parameter having 3-4 possibilities. Trying each configuration takes 20+ minutes. 
+                    % HEAURISTICs were used to determine the optimal configuration befor my setup. 
+                % BAYESIAN SEARCH(OPTIMIZATION)
+                  % Proposed a more intelligent way of searching through the space using prexisting libraries(AX library).
+                  % Two candidates:
+                    % RL: Any problem that has an agent and an environment can be turned into an RL problem. Because of the nature of the problem it seemed appropriate to use a Search Algorithm
+                    % Search algorithms: In our case, we have a black box function. Meaning there's no formula for the problem, it's just choosing the parameters and seeing the results. How the results are generated is unknown. 
+                                        % Hence, we can't use traditional search algorithms like Gradient/Newton Descent. 
+                                        % Algorithms that I know: Simulated Annealing, Cross Entropy, Search Gradient, A*, and Bayesian Optimization. 
+                  % What is Bayesian Search and how is it different from other search methods
+                    % A renown method for searching for complex functions where evaluation take a long time. 
+                    % Used by search and rescue teams to finds the location of the crash of the plane. 
+                    % Uses Gausian Processes within to get the posterior distribution to get the mean and the variance which will be used in the acquisition funtion -> where to smaple next. 
+
+              % FIRMWARE TEAM:
+                % RAS DAEMON:
+                  % Whenever there's an error in the CPU or the MAIN MEMORY, they are written into special registers that are read by the Machine Check Architecture or the Memory Controller. 
+                  % Trigger an interrupt for serios errors or periodly write to the kernel log. 
+                  % Similarly a daemon wakes up periodically and sends the errors to a database. 
+                  % The goal is to keep track of the hardware, and determine a faulty hardware before the hardware fails. 
+                % MY RESPONSIBILITY:
+                  % Get the data from the database, aggregate it, and turn it into a human readable format. 
+            
+              
+                   
+        \resumeItemListEnd
+
+    \resumeSubheading
+      {Nanome Inc.}{San Diego, California, USA}
+      {Software Engineering Intern}{Jun 2019 \textbf{--} Sep 2019}
+        \resumeItemListStart
+            \resumeItem{Developed the source code to efficiently manage data from online sources into \textbf{SQLite} local database.}
+        \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+\section{Projects \& Research}
+    \vspace{3pt}
+    \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+    {\textbf{Advanced Microprocessor Design}}{System Verilog, Verilator, Python, Bash}
+    % $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
+      \resumeItemListStart
+        \resumeItem{Implemented 8KB 8-component \textbf{TAGE} branch predictor, reducing mispredictions by 94\%.}
+        \resumeItem{Developed a victim cache with an \textbf{NRU} replacement policy, reducing average CPI by 10\%}
+        \resumeItem{Implemented \textbf{DRRIP} cache replacement policy, reducing data cache misses by 31.4\%.}
+        \resumeItem{Transformed an in-order pipeline into a scalar \textbf{out-of-order} processor using \textbf{Partial Ordering} memory disambiguation policy, reducing average CPI by 11\%.}
+        \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\textbf{Characterizing WebAssembly Performance (\href{https://conf.researchr.org/details/ecoop-issta-2023/ecoop-issta-2023-student-research-competition/7/-Characterizing-WebAssembly-Performance-in-the-Era-of-Serverless-Computing}{{\textit{\underline{ISSTA 2023 SRC}}}})}}{C++,Python,WebAssembly}
+      \resumeItemListStart
+        \resumeItem{Developed CPU, memory, and file system \textbf{micro-benchmarks} to analyze WebAssembly System Interface (WASI).}
+        \resumeItem{Wrote scripts to analyze WASI performance on \textbf{x86} and \textbf{ARM} architectures using the \textbf{Linux perf} profiling tool.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\textbf{ML Hardware Accelerator for Attention Mechanism}}{System Verilog, Python, PyTorch}
+    % $|$ \emph{\href{https://github.com/arasgungore/chess-bot}{\color{blue}GitHub}}}{}
+      \resumeItemListStart
+        % \resumeItem{Halved English-to-French text translation training and inference time by implementing a Transformer model.}
+        \resumeItem{Implemented a \textbf{Transformer} model for English-to-French text translation.}
+        \resumeItem{Utilized RTL design, verification, synthesis, and PnR methods to generate gate-level netlist and layout using \textbf{Synopsis DC} and \textbf{Cadence Innovus}.}
+        \resumeItem{Orchestrated data exchange between cores operatings on separate clock domains with \textbf{asynchronous FIFO}.}
+        \resumeItem{Reduced WNS by 4x and power consumption by 2x via \textbf{pipelining, loop unrolling,} and \textbf{clock gating}.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\textbf{Snek Compiler}}{x86, Rust}
+      \resumeItemListStart
+        \resumeItem{Built a compiler for a \textbf{dynamically typed} language Snek in \textbf{Rust}, implementing Mark and Compact \textbf{garbage collection} for 20\% improvement in memory management efficiency.}
+        \resumeItem{Optimized performance through IR transition, \textbf{constant folding}, and \textbf{variable propagation}, reducing binary size by 25\% and improving program execution by 30\%.}
+      \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+  
+%----------- SKILLS -----------
+\section{Technical Skills}
+  \vspace{2pt}
+  \resumeSubHeadingListStart
+    \small{\item{
+        \textcolor{secondary_color}{\textbf{Programming:}}{ C++, C, Python, System Verilog, Rust, Golang, MATLAB, Java, C\#, Shell, Tcl, CUDA, Haskell, x86/ARM/MIPS Assembly.} \\ \vspace{3pt}
+        
+        \textcolor{secondary_color}{\textbf{Tools:}}{ Cadence Palladium/Virtuoso/Innovus, Synopsis Verdi/Design Compiler, ModelSim, Quartus, Questa, Verilator, Docker, Unity3D, Fusion360.} \\ \vspace{3pt}
+
+        \textcolor{secondary_color}{\textbf{Technical Skills:}}{ Microprocessor Design, Machine Learning, Compiler Design, Parallel Computing, Logic Design, Performance Profiling, Software Development, Reliable and Scalable System Development, Universal Verification Method(UVM), Analog Circuit Analysis.} \\ \vspace{3pt} 
+    }}
+  \resumeSubHeadingListEnd
+
+\end{document}
